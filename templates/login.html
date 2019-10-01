@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <form action="/login/" method="post" >
+        {% csrf_token %}
+        用户名：<input type="text" name="name">
+        密码：<input type="password" name="password">
+        <input type="submit" value="提交">
+    </form>
+
+</div>
+</body>
+</html>

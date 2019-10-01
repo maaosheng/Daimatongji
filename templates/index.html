@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            height: 48px;
+            background-color: deepskyblue;
+        }
+        .left{
+            position: fixed;
+            {#margin-top: 48px;#}
+            margin-left:0;
+            width: 200px;
+            height: 100%;
+            margin-bottom: 0;
+            background-color: bisque;
+        }
+        .right{
+            position: fixed;
+            margin-left: 200px;
+            background-color: gray;
+            width: 1150px;
+            height: 100%;
+            overflow: auto;
+            margin-bottom: 0;
+            }
+        .c1{
+            text-align: center;
+            margin-top: 10px;
+            padding: 5px;
+            border-bottom: 2px solid white;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: deeppink;
+        }
+        .son {
+            position: absolute;
+            margin-top: 50px;
+            margin-left: 100px;
+            width: 80%;
+            {#border: 1px solid white;#}
+
+        }
+        .c2{
+            margin-left: 300px;
+            margin-top: 200px;
+        }
+        .c3{
+            margin-left: 200px;
+            margin-top: 20px;
+        }
+        .c4{
+            float: right;
+            margin-top: 5px;
+            padding: 5px;
+        }
+        .c5{
+            float:right;
+            margin-top: 5px;
+            padding: 5px;
+        }
+        .header:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .c6{
+            position: absolute;
+            margin-top:10px;
+            margin-left: 20px;
+
+        }
+        .c7{
+            float: right;
+            margin-top:5px;
+            padding: 5px;
+            color: deeppink;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="header">
+        <div class="c6"><h4>代码统计系统</h4></div>
+        {% if  request.session.user%}
+             <div class="c5"><a href="/layout/">退出</a></div>
+            <div class="c7" >{{ request.session.user}}</div>
+        {% else %}
+        <div class="c4" ><a href="/login/">登陆</a></div>
+
+        {% endif %}
+    </div>
+    <div class="content">
+        <div class="left">
+            <div class="c1"><a href="/jishu/">代码上传</a></div>
+            <div class="c1"><a href="/list_view/">代码查询</a></div>
+        </div>
+        <div class="right">
+            <div class="son">
+            {% block content %}
+
+            {% endblock %}
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

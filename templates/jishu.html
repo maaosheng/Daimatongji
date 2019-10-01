@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="c3">
+    <div style="margin-bottom: 10px"><h3>请选择要上传的代码</h3></div>
+    <form action="/jishu/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <input type="file" name="file">
+        <input type="submit" value="提交">
+        </div>
+    </form>
+{% endblock %}
